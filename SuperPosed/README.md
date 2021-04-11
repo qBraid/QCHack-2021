@@ -8,3 +8,7 @@ For example one such categorization divided the data into two classes one class 
 
 ## Usage
 
+- The file [ml_training.ipynb](https://github.com/Harsh14901/qbraid-qchack/blob/main/ml_training.ipynb) can be used to train the model using the MNIST dataset.
+- The file [inference.ipynb](https://github.com/Harsh14901/qbraid-qchack/blob/main/inference.ipynb) can be used to predict a handwritten digit. It includes a canvas on which the digits can be drawn to and then a function call predicts the digits drawn on the canvas.
+
+[Demo Video](https://github.com/Harsh14901/qchack/blob/main/SuperPosed/final4.mp4)
