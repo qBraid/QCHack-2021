@@ -6,6 +6,8 @@ Our initial optimization attempt is [smoothing_linear_filters.ipynb](./smoothing
 
 Our improved version is [crab.ipynb](./crab.ipynb)
 
+The json files can be ignored for the qBraid challenge, they were requirements for the Q-CTRL submission and were included here for the sake of completeness.
+
 ## Team
 
 Raymond Jow
