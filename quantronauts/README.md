@@ -120,3 +120,24 @@ Batman choose 1 sticks
 
 When it doesn't have a stick anymore we run the circuit we create with the gates and get the result, for each qubit still at the state `|0>` we had 1 stick left.
 Then we continue wit the sticks remaning until we don't have stick at all after running the circuit.
+
+### Modes
+#### 2 players
+A 2 players mode is available is you want to play with a friend or with your cat
+#### 1 player
+A 1 player is available and you'll fight against a quantum ia made with Grover with inside the modulo 4 classical algorythm.
+
+--> **Explanation coming soon !***
+
+<pre>
+q0|0>  ---------------------------------
+
+q1|0>  ---------------------------------
+
+q2|0>  ---------------------------------
+
+q3|0>  ---------------------------------
+
+psi|+> ---------------------------------
+</pre>
+
