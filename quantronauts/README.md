@@ -127,7 +127,7 @@ A 2 players mode is available is you want to play with a friend or with your cat
 #### 1 player
 A 1 player is available and you'll fight against a quantum ia made with Grover with inside the modulo 4 classical algorythm.
 
---> **Explanation coming soon !***
+--> **Explanation coming soon !**
 
 <pre>
 q0|0>  ---------------------------------
