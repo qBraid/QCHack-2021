@@ -20,7 +20,8 @@ else:
 while play:
     stick = 3
     nb_qubit = stick
-    draw.draw(stick)
+    drawing_add = ""
+    draw.draw(stick, drawing_add)
 
     stick_qubit = QuantumRegister(nb_qubit, 'stick')
     qc_board = QuantumCircuit(stick_qubit)
@@ -34,26 +35,27 @@ while play:
 
         print(player_name, "- You take : ")
         nbstick = int(input())
-        lessstick = 0
         for i in range(nbstick):
             print(player_name, "- Which gate do you want to use on stick[", i+1, "] ?")
-            if stick-lessstick == 1:
+            if stick-i == 1 and nb_qubit == 1:
                 gate = str(input("x : "))
-            elif stick-lessstick == nb_qubit:
+            elif stick-i == 1:
+                gate = str(input("x, cx : "))
+            elif stick-i == nb_qubit:
                 gate = str(input("h, x : "))
-            elif stick-lessstick > 1:
+            elif stick-i > 1:
                 gate = str(input("h, x, cx : "))
 
             if gate == 'h':
-                qc_board.h(stick-(1+lessstick))
-                lessstick += 1
+                qc_board.h(stick-(1+i))
+                drawing_add = "/ " + drawing_add
             if gate == 'x':
-                qc_board.x(stick-(1+lessstick))
-                lessstick += 1
+                qc_board.x(stick-(1+i))
+                drawing_add = ""
             if gate == 'cx':
                 qc_board.cx(stick-i, stick-(1+i))
-                lessstick += 1
-        stick -= lessstick
+                drawing_add = "¬ " + drawing_add
+        stick -= nbstick
 
         if stick < 1:
             qc_board.measure_all()
@@ -61,7 +63,9 @@ while play:
             job = execute(qc_board, backend_sim, shots=1, memory=True)
             result_memory = job.result().get_memory()
             result = result_memory[0]
-            for i in range(len(result)-1):
+            print("Result : ", result)
+            for i in range(len(result)):
+                print("[", i, "]:", result[i])
                 if result[i] == '0':
                     stick += 1
             print("stick left : ", stick)
@@ -73,11 +77,12 @@ while play:
                     print("\n\n##################\n  Player 1 win !\n##################")
             else:
                 nb_qubit = stick
+                drawing_add = ""
                 stick_qubit = QuantumRegister(nb_qubit, 'stick')
                 qc_board = QuantumCircuit(stick_qubit)
 
         if stick > 0:
-            draw.draw(stick)
+            draw.draw(stick, drawing_add)
             player2[0] = not player2[0]
             player1[0] = not player1[0]
 
