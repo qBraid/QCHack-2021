@@ -3,7 +3,6 @@ from qiskit import Aer, QuantumCircuit, QuantumRegister, execute
 
 # Init Qasm simulator backend
 qasm = Aer.get_backend('qasm_simulator')
-
 backend_sim = qasm
 
 # Init game parameters
