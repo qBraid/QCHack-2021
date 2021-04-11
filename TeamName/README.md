@@ -8,6 +8,7 @@ Another big motivation behind this project was that, as reading through Shor's a
 
 ## Description
 My references for this project (as referenced throughout the project notebook as well) are the following:
+
 https://arxiv.org/pdf/quant-ph/9508027.pdf<br/>
 https://arxiv.org/pdf/quant-ph/0205095.pdf<br/>
 https://qiskit.org/textbook/ch-algorithms/shor.html<br/>
