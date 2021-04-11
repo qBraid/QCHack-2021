@@ -16,16 +16,16 @@ def Hamiltonian(n,h):
     simulator = Aer.get_backend('unitary_simulator')
     result = np.empty(2*n-1, dtype=object) 
     unitary = np.empty(2*n-1, dtype=object) 
-    Hamiltonial=0
+    Hamiltonian_Matrix=0
     for i in range(0, 2*n-1):
         result[i] = execute(qc[i], backend=simulator).result()
         unitary[i] = result[i].get_unitary()
         #print(unitary[i])
         if (i<=n-2):
-            Hamiltonial=np.add(Hamiltonial,-unitary[i])
+            Hamiltonian_Matrix=np.add(Hamiltonian_Matrix,-unitary[i])
         else:
-            Hamiltonial=np.add(Hamiltonial,-h*unitary[i])
-    print(Hamiltonial)
+            Hamiltonian_Matrix=np.add(Hamiltonian_Matrix,-h*unitary[i])
+    print(Hamiltonian_Matrix)
     
 Hamiltonian(3,1)
 
