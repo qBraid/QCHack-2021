@@ -18,7 +18,7 @@ else:
     player2[0] = True
 
 while play:
-    stick = 3
+    stick = 11
     nb_qubit = stick
     drawing_add = ""
     draw.draw(stick, drawing_add)
