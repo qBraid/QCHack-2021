@@ -3,7 +3,7 @@ The Ising model describes a chain of spins that act like magnetic dipoles. The f
 
 ## Transverse field Ising Model
 
-[The transverse field Ising Model](https://en.wikipedia.org/wiki/Transverse-field_Ising_model) can be described by a two-state system where each state corresponds to the value of the spin. Due to non-commuting observables when the transverse field is introduced, a quantum approach is needed in order to calculate the Hamiltonian of the system. We can therefore match the number of the spins that create the Ising chain to qubits, and use a two-qubit circuit (since only two neighboring spins interact) to perform the non-commuting matrices calculations. Then the unitary matrix of the circuit is returned, that is used in the calculation of the Hamiltonian of the whole system, which looks like this
+[The transverse field Ising Model](https://en.wikipedia.org/wiki/Transverse-field_Ising_model) can be described by a two-state system where each state corresponds to the value of the spin. Due to non-commuting observables when the transverse field is introduced, a quantum approach is needed in order to calculate the Hamiltonian of the system. We can therefore match the number of the spins that create the Ising chain to qubits, and use a two-qubit circuit (since only two neighboring spins interact each time) to perform the non-commuting matrices calculations. Then the unitary matrix of the circuit is returned and it's used in the calculation of the Hamiltonian for the whole system. The general form of the transverse field Ising Model Hamiltonian is
 
 ![Transverse Field Ising Model Hamiltonian Formula](https://i.imgur.com/7FKY93c.png)
 
