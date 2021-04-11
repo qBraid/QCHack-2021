@@ -33,6 +33,10 @@
 </table>
 
 ## Game
+### Running the game
+To run the program just launch : `python3 nim_game.py`
+
+### Rules
 This game is inspiring from the [Nim game](https://en.wikipedia.org/wiki/Nim). You are 2 players face to face, you have 11 sticks in front of you :
 <pre>
           \o/
