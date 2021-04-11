@@ -26,8 +26,4 @@ We have demonstrated the Key-Distribution Protocol in three different scenarios 
 - A case with noisy channels and without eavesdropping
 - A practical case with noisy channels and eavesdropping
 
-Each scenario in the folder can be executed given the "Functions" directory which includes all the required functions. <br>  Both the Jupyter Notebooks and Python files are present. The technical requirements are the installation of Qiskit and Python.
-
-### **Team Members**
-
-Lakshika Rathi, IIT Delhi & Shreya Ilindra, IIT Bombay
+Each scenario in the folder can be executed given the "Functions" directory which includes all the required functions. <br>  The technical requirements are the installation of Qiskit and Python.
