@@ -6,6 +6,7 @@ qasm = Aer.get_backend('qasm_simulator')
 
 backend_sim = qasm
 
+# Init game parameters
 player1 = [False, "Player1"]
 player2 = [False, "Player2"]
 
@@ -18,6 +19,7 @@ else:
     player2[0] = True
 
 while play:
+    # Generation of the first circuit with 11 qubits
     stick = 11
     nb_qubit = stick
     drawing_add = ""
@@ -26,13 +28,14 @@ while play:
     stick_qubit = QuantumRegister(nb_qubit, 'stick')
     qc_board = QuantumCircuit(stick_qubit)
 
-    # Jeu
+    # Game
     while stick > 0:
         if player1[0]:
             player_name = player1[1]
         else:
             player_name = player2[1]
-
+        
+        # Rule choice
         print(player_name, "- You take : ")
         nbstick = int(input())
         for i in range(nbstick):
@@ -56,8 +59,10 @@ while play:
                 qc_board.cx(stick-i, stick-(1+i))
                 drawing_add = "¬ " + drawing_add
         stick -= nbstick
-
+        
+        # Check if board is clean
         if stick < 1:
+            # Run circuit
             qc_board.measure_all()
             print(qc_board.draw())
             job = execute(qc_board, backend_sim, shots=1, memory=True)
@@ -69,24 +74,27 @@ while play:
                 if result[i] == '0':
                     stick += 1
             print("stick left : ", stick)
-
+            
+            # Check circuit result
             if stick < 1:
                 if player1[0]:
                     print("\n\n##################\n  Player 2 win !\n##################")
                 if player2[0]:
                     print("\n\n##################\n  Player 1 win !\n##################")
             else:
+                # Generation of new circuit with qubits left
                 nb_qubit = stick
                 drawing_add = ""
                 stick_qubit = QuantumRegister(nb_qubit, 'stick')
                 qc_board = QuantumCircuit(stick_qubit)
-
+        
+        # Inverse turn
         if stick > 0:
             draw.draw(stick, drawing_add)
             player2[0] = not player2[0]
             player1[0] = not player1[0]
 
-    # Nouvelle partie ?
+    # New game ?
     again = str(input("Play again ? (y/n) --> "))
     if again == 'n':
         play = False
