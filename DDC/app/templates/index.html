@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>qcHack</title>
+    <link
+      rel="stylesheet"
+      href="../static/assets/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../static/assets/css/styles.css" />
+  </head>
+
+  <body>
+    <div>
+      <div class="container">
+        <div>
+          <h1 style="margin: 19px">Quantum Calculator</h1>
+          <h2 style="margin: 20px">Integer Computing</h2>
+          <p style="margin: 20px">
+            At the moment, our product only supports adding 2 integers
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="container">
+        <form action="/" method="POST">
+          <div>
+            <div class="form-row" style="margin: 20px">
+              <div class="col">
+                <label>Expression</label
+                ><input
+                  class="form-control"
+                  type="text"
+                  name="ex"
+                  value="{{expression}}"
+                  style="
+                    width: 100%;
+                    border-style: solid;
+                    border-color: var(--blue);
+                    margin: 0;
+                  "
+                />
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit" style="margin: 20px">
+              Button
+            </button>
+          </div>
+        </form>
+        <div class="form-row" style="margin: 20px">
+          <div class="col">
+            <label>Result</label
+            ><textarea class="form-control">{{results}}</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="container">
+        <div style="margin: 20px">
+          <img
+            style="width: 20cm"
+            src="../static/assets/UPLOAD_FOLDER/{{prob_url}}"
+          />
+        </div>
+        <div style="margin: 20px">
+          <img style="width: 20cm" src="{{c_url}}" />
+        </div>
+      </div>
+    </div>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
