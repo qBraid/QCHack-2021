@@ -27,7 +27,7 @@ else:
 
 while play:
     # Generation of the first circuit with 11 qubits
-    stick = 4
+    stick = 11
     nb_qubit = stick
     drawing_add = ""
     draw.draw(stick, drawing_add)
@@ -86,7 +86,6 @@ while play:
                 else:
                     for i in range(result_analyse):
                         qc_board.x(stick - (1 + i))
-                        print("Coucou i:",i)
                     nbstick = result_analyse
 
         stick -= nbstick
