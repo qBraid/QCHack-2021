@@ -64,10 +64,10 @@ def quantum_ia(sticks_root, backend_sim):
     job = execute(qc, backend_sim, shots=512, memory=True)
     result_job = job.result().get_counts()
     result_memory = job.result().get_memory()
-    print("Memory ", result_memory)
+    #print("Memory ", result_memory)
     if len(result_job) == 1:
         to_return = int(result_memory[0], 2)
-        print("Return : ", to_return)
+        #print("Return : ", to_return)
     else:
         to_return = 4
 
