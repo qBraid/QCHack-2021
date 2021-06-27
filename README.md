@@ -3,6 +3,8 @@ This repository was used during the quantumcoalition.com's firt quantum computin
 
 The folders are named after the team names and more details about the projects could be found within the folders. If you'd like to play with the submission, you can clone this repo to your qBraid account. All the code should work out of the box in `qchack environment` on qBraid.
 
+If you build on the projects in this repo and would like to share with the community, please consider contributing to https://github.com/qBraid/qbraid-showcase/
+
 
 
 
