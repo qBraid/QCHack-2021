@@ -1,5 +1,6 @@
 import draw
 import ia
+import stats
 from qiskit import Aer, QuantumCircuit, QuantumRegister, execute
 
 # Init Qasm simulator backend
@@ -117,8 +118,10 @@ while play:
                 if player1[0]:
                     print("\n\n##################\n  Player 2 win !\n##################")
                 if player2[0]:
+                    stats.stats("human")
                     print("\n\n##################\n  Player 1 win !\n##################")
                 if computer[0] is False and computer[1] is True:
+                    stats.stats("robot")
                     print("\n\n##################\n  Machine win !\n##################")
             else:
                 # Generation of new circuit with qubits left
