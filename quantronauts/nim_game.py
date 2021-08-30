@@ -11,6 +11,24 @@ backend_sim = qasm
 player1 = [False, "Player1"]
 player2 = [False, "Player2"]
 
+
+def control_input(options, input_ctl):
+    if input_ctl is not None:
+        if isinstance(input_ctl, int):
+            if 0 < input_ctl <= 3:
+                return True
+            elif options+1 < 3:
+                print("Please give a number between 0 and {}.".format(options))
+            else:
+                print("Please give a number between 0 and {}.".format(3))
+        else:
+            if input_ctl in options:
+                return True
+            else:
+                print("Please give a valid gate between {}".format(options))
+    return False
+
+
 print("""
 ###################################################
 # Welcome in the Quantum Nim Game - CLI
@@ -55,17 +73,26 @@ while play:
         # Player choice
         if computer[1] is False or player1[0] is True:
             print(player_name, "- You take : ")
-            nbstick = int(input())
+            control = False
+            while not control:
+                nbstick = int(input())
+                control = control_input(stick, nbstick)
             for i in range(nbstick):
                 print(player_name, "- Which gate do you want to use on stick[", i + 1, "] ?")
-                if stick - i == 1 and nb_qubit == 1:
-                    gate = str(input("x : "))
-                elif stick - i == 1:
-                    gate = str(input("x, cx : "))
-                elif stick - i == nb_qubit:
-                    gate = str(input("h, x : "))
-                elif stick - i > 1:
-                    gate = str(input("h, x, cx : "))
+                control = False
+                while not control:
+                    if stick - i == 1 and nb_qubit == 1:
+                        gate = str(input("x : "))
+                        control = control_input(["x"], gate)
+                    elif stick - i == 1:
+                        gate = str(input("x, cx : "))
+                        control = control_input(["x", "cx"], gate)
+                    elif stick - i == nb_qubit:
+                        gate = str(input("h, x : "))
+                        control = control_input(["x", "h"], gate)
+                    elif stick - i > 1:
+                        gate = str(input("h, x, cx : "))
+                        control = control_input(["x", "h", "cx"], gate)
 
                 if gate == 'h':
                     qc_board.h(stick - (1 + i))
