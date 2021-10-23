@@ -14,7 +14,7 @@ def stats(winner):
         data = {
             "event_type": "games-stats",
             "client_payload": {
-                "game": "qpokemon",
+                "game": "qnim",
                 "winner": f"{winner}"
             }
         }
