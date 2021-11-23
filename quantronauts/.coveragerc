@@ -1,0 +1,6 @@
+[run]
+omit =
+    # omit template files
+    .tox/*
+    .github/*
+    stats/*
