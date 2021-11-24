@@ -12,7 +12,7 @@ from qiskit_optimization.algorithms import MinimumEigenOptimizer
 from qiskit_optimization.converters import QuadraticProgramToQubo
 
 
-def quantum_ia(nb_stick, past, backend_sim):
+def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 	"""Quantum IA.
 	Args:
 		nb_stick: nb of stick left
@@ -20,7 +20,7 @@ def quantum_ia(nb_stick, past, backend_sim):
 		backend_sim: backend for quantum
 	Return: Prediction to use
 	"""
-	def quadratibot(nb_stick, past, backend_sim):
+	def quadratibot(nb_stick: int, past: list, backend_sim: Aer) -> list:
 		"""Quadratic + QAOA function
 		Args:
 			nb_stick: nb of stick left
@@ -29,7 +29,7 @@ def quantum_ia(nb_stick, past, backend_sim):
 		Return: Gates to use
 		"""
 		def get_quantum_solution_for(
-		    algo, quadprog: QuadraticProgram, quantumInstance: QuantumInstance, optimizer=None):
+		    quadprog: QuadraticProgram, quantumInstance: QuantumInstance, optimizer=None):
 		    _eval_count = 0
 
 		    def callback(eval_count, parameters, mean, std):
@@ -100,7 +100,7 @@ def quantum_ia(nb_stick, past, backend_sim):
 
 		# Get QAOA result
 		final_result = []
-		qaoa_result, qaoa_eval_count = get_quantum_solution_for("QAOA", quadprog, simulator_instance)
+		qaoa_result, qaoa_eval_count = get_quantum_solution_for(quadprog, simulator_instance)
 
 		# Format and print result
 		for cropHectares, cropName in zip(qaoa_result.x, qaoa_result.variable_names):
@@ -110,7 +110,7 @@ def quantum_ia(nb_stick, past, backend_sim):
 		return final_result
 
 
-	def gronim(output, backend_sim):
+	def gronim(output: list, backend_sim: Aer) -> list:
 		"""Grover for best predict.
 		Args:
 			output: every possible prediction
