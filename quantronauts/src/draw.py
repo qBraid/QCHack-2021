@@ -1,4 +1,5 @@
 def draw(stick, cx):
+    """Function to draw of the board."""
     if stick == 11:
         print("#######################\n | | | | | | | | | | | \n#######################")
 
