@@ -4,7 +4,7 @@ from src.function import control_input
 from qiskit import Aer, QuantumCircuit, QuantumRegister, execute
 
 
-def battle(player1, player2, backend_sim):
+def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
     """Battle game.
     Args:
         player1: player
