@@ -1,7 +1,7 @@
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, execute
 
 
-def quantum_ia(sticks_root, backend_sim):
+def quantum_ia(sticks_root: int, backend_sim: Aer):
     """Grover.
     Args:
         sticks_root: past
