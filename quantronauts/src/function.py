@@ -1,4 +1,4 @@
-def control_input(options, input_ctl):
+def control_input(options: int, input_ctl: int):
     """Function to control input of user.
     Args:
         options: limit of input
