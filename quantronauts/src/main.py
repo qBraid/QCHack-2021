@@ -5,6 +5,13 @@ from qiskit import Aer, QuantumCircuit, QuantumRegister, execute
 
 
 def battle(player1, player2, backend_sim):
+    """Battle game.
+    Args:
+        player1: player
+        player2: player if 2 player
+        backend_sim: backend for quantum
+    Return: winner, looser
+    """
 
     play = True
 
