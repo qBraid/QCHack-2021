@@ -1,4 +1,4 @@
-def draw(stick: int, cx):
+def draw(stick: int, cx: str):
     """Function to draw of the board.
     Args:
         stick: nb of sticks left
