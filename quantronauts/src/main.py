@@ -1,7 +1,8 @@
-import src.draw
-import src.ia
-from src.function import control_input
+from typing import Tuple
+
 from qiskit import Aer, QuantumCircuit, QuantumRegister, execute
+from quantronauts.src.function import control_input
+from quantronauts.src import draw, ia
 
 
 def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
@@ -19,7 +20,6 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
     nb_player = str(input("How many player ? 1/2 : "))
     if nb_player == "1":
         computer[1] = True
-
 
     begin = str(input("Player1 start ? y/n : "))
     if begin == "y":

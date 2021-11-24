@@ -1,9 +1,6 @@
-import src.draw
-import src.ia
-from src.main import battle
-from stats.data import stats
-from src.function import control_input
-from qiskit import Aer, QuantumCircuit, QuantumRegister, execute
+from qiskit import Aer
+from quantronauts.src.main import battle
+from quantronauts.stats.data import stats
 
 
 class Game:

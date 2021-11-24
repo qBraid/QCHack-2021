@@ -2,7 +2,11 @@ import os
 import requests
 
 
-def stats(winner):
+def stats(winner: str):
+    """Gen stats to GitHub Actions
+    Args:
+        winner: winner of the game
+    """
     TOKEN = os.environ.get("GITHUB_TOKEN")
 
     if TOKEN is not None:
