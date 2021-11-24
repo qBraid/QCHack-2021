@@ -8,6 +8,7 @@ from qiskit import Aer, QuantumCircuit, QuantumRegister, execute
 
 class Game:
     def __init__(self):
+        """Game begins."""
         # Init Qasm simulator backend
         qasm = Aer.get_backend("qasm_simulator")
         backend_sim = qasm
