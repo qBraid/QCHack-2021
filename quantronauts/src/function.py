@@ -1,4 +1,10 @@
 def control_input(options, input_ctl):
+    """Function to control input of user.
+    Args:
+        options: limit of input
+        input_ctl: input of user
+    Return: Bool
+    """
     if input_ctl is not None:
         if isinstance(input_ctl, int):
             if 0 < input_ctl <= 3:
