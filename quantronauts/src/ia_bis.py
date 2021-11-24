@@ -13,7 +13,21 @@ from qiskit_optimization.converters import QuadraticProgramToQubo
 
 
 def quantum_ia(nb_stick, past, backend_sim):
+	"""Quantum IA.
+	Args:
+		nb_stick: nb of stick left
+		past: past turn
+		backend_sim: backend for quantum
+	Return: Prediction to use
+	"""
 	def quadratibot(nb_stick, past, backend_sim):
+		"""Quadratic + QAOA function
+		Args:
+			nb_stick: nb of stick left
+			past: past turn
+			backend_sim: backend for quantum
+		Return: Gates to use
+		"""
 		def get_quantum_solution_for(
 		    algo, quadprog: QuadraticProgram, quantumInstance: QuantumInstance, optimizer=None):
 		    _eval_count = 0
@@ -97,6 +111,12 @@ def quantum_ia(nb_stick, past, backend_sim):
 
 
 	def gronim(output, backend_sim):
+		"""Grover for best predict.
+		Args:
+			output: every possible prediction
+			backend_sim: backend for quantum
+		Return: best predict
+		"""
 		def diffuser(nqubits):
 		    qc = QuantumCircuit(nqubits)
 		    for qubit in range(nqubits):
