@@ -1,20 +1,20 @@
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, execute
 
 
-def quantum_ia(sticks_root: int, backend_sim: Aer):
+def quantum_ia(sticks_root: int, backend_sim: Aer) -> int:
     """Grover.
     Args:
         sticks_root: past
         backend_sim: backend for quantum
     Return: Gate to use
     """
-    def diffuser(qc):
+    def diffuser(qc: QuantumCircuit):
         qc.h(qram_q)
         qc.z(qram_q)
         qc.cz(qram_q[0], qram_q[1])
         qc.h(qram_q)
 
-    def qram(qc):
+    def qram(qc: QuantumCircuit):
         # 01
         qc.x(qram_q[0])
         qc.ccx(qram_q[0], qram_q[1], sticks_q[0])
