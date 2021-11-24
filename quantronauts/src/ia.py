@@ -2,6 +2,12 @@ from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, execute
 
 
 def quantum_ia(sticks_root, backend_sim):
+    """Grover.
+    Args:
+        sticks_root: past
+        backend_sim: backend for quantum
+    Return: Gate to use
+    """
     def diffuser(qc):
         qc.h(qram_q)
         qc.z(qram_q)
