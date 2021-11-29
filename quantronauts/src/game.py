@@ -1,6 +1,6 @@
 from qiskit import Aer
-from quantronauts.src.main import battle
-from quantronauts.stats.data import stats
+from src.main import battle
+from stats.data import stats
 
 
 class Game:

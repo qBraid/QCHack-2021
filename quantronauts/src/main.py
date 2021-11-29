@@ -1,8 +1,8 @@
 from typing import Tuple
 
 from qiskit import Aer, QuantumCircuit, QuantumRegister, execute
-from quantronauts.src.function import control_input
-from quantronauts.src import draw, ia
+from src.function import control_input
+from src import draw, ia
 
 
 def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
@@ -103,6 +103,7 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
                     else:
                         for i in range(result_analyse):
                             qc_board.x(stick - (1 + i))
+                            drawing_add = "x " + drawing_add
                         nbstick = result_analyse
 
             stick -= nbstick

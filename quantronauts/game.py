@@ -1,6 +1,6 @@
 import fire
 
-from quantronauts.src import Game
+from src import Game
 
 
 if __name__ == "__main__":
