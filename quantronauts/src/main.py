@@ -79,7 +79,7 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
                         drawing_add = "/ " + drawing_add
                     if gate == "x":
                         qc_board.x(stick - (1 + i))
-                        drawing_add = ""
+                        drawing_add = "x " + drawing_add
                     if gate == "cx":
                         qc_board.cx(stick - i, stick - (1 + i))
                         drawing_add = "¬ " + drawing_add
@@ -89,7 +89,7 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
                 nbstick = 0
                 if stick == 1:
                     qc_board.x(stick - 1)
-                    drawing_add = ""
+                    drawing_add = "x " + drawing_add
                     nbstick = 1
                 else:
                     result_analyse = ia.quantum_ia(stick % 4, backend_sim)
@@ -98,7 +98,7 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
                             qc_board.h(stick - (1 + i))
                             qc_board.cx(stick - i, stick - (1 + i))
                             qc_board.x(stick - (1 + i))
-                            drawing_add = ""
+                            drawing_add = "x ¬ / " + drawing_add
                             nbstick = 3
                     else:
                         for i in range(result_analyse):
