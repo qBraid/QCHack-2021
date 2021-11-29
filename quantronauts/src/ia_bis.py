@@ -37,11 +37,9 @@ def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 				_eval_count = eval_count
 
 			# Create solver and optimizer
-			solver = QAOA(optimizer=optimizer, quantum_instance=quantumInstance, callback=callback, )
-
+			solver = QAOA(optimizer=optimizer, quantum_instance=quantumInstance, callback=callback)
 			# Create optimizer for solver
 			optimizer = MinimumEigenOptimizer(solver)
-
 			# Get result from optimizer
 			result = optimizer.solve(quadprog)
 			return result, _eval_count
@@ -53,8 +51,6 @@ def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 			max_stick = nb_stick
 
 		# Check the past
-		# |||||||| ## /¬/¬¬/
-		past.reverse()
 		poten_stick = nb_stick
 		for i in range(len(past)):
 			if past[i] == "/":
@@ -235,7 +231,7 @@ def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 		# Diffuser
 		qc.append(diffuser(len_qram), [*[i for i in range(len_qram)]])
 
-		# Measure of the ouputs
+		# Measure of the outputs
 		qc.barrier()
 		qc.measure(qram, c)
 
@@ -254,10 +250,10 @@ def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 
 		return to_return
 
-	output = quadratibot(nb_stick, past, backend_sim)
-	if len(output) < 2:
-		predict = output
+	gates = quadratibot(nb_stick, past, backend_sim)
+	if len(gates) < 2:
+		predict = gates
 	else:
-		predict = gronim(output, backend_sim)
+		predict = gronim(gates, backend_sim)
 
 	return predict
