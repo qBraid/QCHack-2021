@@ -57,10 +57,11 @@ def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 				poten_stick += 0.5
 			if past[i] == "¬":
 				u = 1
-				while past[i + u] == "¬":
-					u += 1
-				if past[i + u] == "/":
-					poten_stick += 0.5
+				if len(past)-1 >= i+u:
+					while past[i + u] == "¬":
+						u += 1
+					if past[i + u] == "/":
+						poten_stick += 0.5
 
 		# Check last turn
 		last_st = 0
