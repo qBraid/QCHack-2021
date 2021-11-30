@@ -92,19 +92,14 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
                     drawing_add = "x " + drawing_add
                     nbstick = 1
                 else:
-                    result_analyse = ia.quantum_ia(stick % 4, backend_sim)
-                    if result_analyse == 4:
-                        for i in range(3):
-                            qc_board.h(stick - (1 + i))
-                            qc_board.cx(stick - i, stick - (1 + i))
-                            qc_board.x(stick - (1 + i))
-                            drawing_add = "x ¬ / " + drawing_add
-                            nbstick = 3
-                    else:
-                        for i in range(result_analyse):
-                            qc_board.x(stick - (1 + i))
-                            drawing_add = "x " + drawing_add
-                        nbstick = result_analyse
+                    past = drawing_add.split(" ")
+                    result_analyse = ia.quantum_ia(stick, past, backend_sim)
+                    for i in result_analyse:
+                        if i == "x":
+                        if i == "sup":
+                        if i == "intric":
+                            
+                    nbstick = len(result_analyse)
 
             stick -= nbstick
 
