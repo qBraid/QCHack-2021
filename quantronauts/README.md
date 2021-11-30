@@ -125,7 +125,7 @@ Then we continue wit the sticks remaning until we don't have stick at all after 
 #### 2 players
 A 2 players mode is available is you want to play with a friend or with your cat
 #### 1 player
-A 1 player is available and you'll fight against a quantum ia made with Grover with inside the modulo 4 classical algorythm.
+A 1 player is available and you'll fight against a quantum ia made with a quadratical equation, QAOA and Grover.
 
 --> **Explanation coming soon !**
 
