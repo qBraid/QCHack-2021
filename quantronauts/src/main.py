@@ -86,7 +86,6 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
 
             # Computer choice
             if computer[0] is True and computer[1] is True:
-                nbstick = 0
                 if stick == 1:
                     qc_board.x(stick - 1)
                     drawing_add = "x " + drawing_add
@@ -94,10 +93,16 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
                 else:
                     past = drawing_add.split(" ")
                     result_analyse = ia.quantum_ia(stick, past, backend_sim)
-                    for i in result_analyse:
-                        if i == "x":
-                        if i == "sup":
-                        if i == "intric":
+                    for i, gate in element(result_analyse):
+                        if gate == "x":
+                            qc_board.x(stick - (1 + i))
+                            drawing_add = "x " + drawing_add
+                        if gate == "sup":
+                            qc_board.h(stick - (1 + i))
+                            drawing_add = "/ " + drawing_add
+                        if gate == "intric":
+                            qc_board.cx(stick - i, stick - (1 + i))
+                            drawing_add = "¬ " + drawing_add
                             
                     nbstick = len(result_analyse)
 
