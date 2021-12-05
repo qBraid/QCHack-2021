@@ -1,6 +1,5 @@
 fire
 qiskit
-qiskit[algorithms]
 qiskit-optimization
 requests
 pytest==6.2.5
