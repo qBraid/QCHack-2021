@@ -127,17 +127,3 @@ A 2 players mode is available is you want to play with a friend or with your cat
 #### 1 player
 A 1 player is available and you'll fight against a quantum ia made with a quadratical equation, QAOA and Grover.
 
---> **Explanation coming soon !**
-
-<pre>
-q0|0>  ---------------------------------
-
-q1|0>  ---------------------------------
-
-q2|0>  ---------------------------------
-
-q3|0>  ---------------------------------
-
-psi|+> ---------------------------------
-</pre>
-
