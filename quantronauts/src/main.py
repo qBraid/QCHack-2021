@@ -103,7 +103,7 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
                         if gate == "intric":
                             qc_board.cx(stick - i, stick - (1 + i))
                             drawing_add = "¬ " + drawing_add
-                            
+
                     nbstick = len(result_analyse)
 
             stick -= nbstick
@@ -124,12 +124,18 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
                 # Check circuit result
                 if stick < 1:
                     if player1[0] and nb_player == "2":
-                        print("\n\n##################\n  Player 2 win !\n##################")
+                        print(
+                            "\n\n##################\n  Player 2 win !\n##################"
+                        )
                     if player2[0]:
-                        print("\n\n##################\n  Player 1 win !\n##################")
+                        print(
+                            "\n\n##################\n  Player 1 win !\n##################"
+                        )
                         return "human", "robot"
                     if computer[0] is False and computer[1] is True:
-                        print("\n\n##################\n  Machine win !\n##################")
+                        print(
+                            "\n\n##################\n  Machine win !\n##################"
+                        )
                         return "robot", "human"
                 else:
                     # Generation of new circuit with qubits left
