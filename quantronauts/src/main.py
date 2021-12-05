@@ -86,14 +86,14 @@ def battle(player1: list, player2: list, backend_sim: Aer) -> Tuple:
 
             # Computer choice
             if computer[0] is True and computer[1] is True:
-                if stick == 1:
+                if stick == 1 and nb_qubit == 1:
                     qc_board.x(stick - 1)
                     drawing_add = "x " + drawing_add
                     nbstick = 1
                 else:
                     past = drawing_add.split(" ")
                     result_analyse = ia.quantum_ia(stick, past, backend_sim)
-                    for i, gate in element(result_analyse):
+                    for i, gate in enumerate(result_analyse):
                         if gate == "x":
                             qc_board.x(stick - (1 + i))
                             drawing_add = "x " + drawing_add

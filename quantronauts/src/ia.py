@@ -37,7 +37,7 @@ def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 				_eval_count = eval_count
 
 			# Create solver and optimizer
-			solver = QAOA(optimizer=optimizer, quantum_instance=quantumInstance, callback=callback)
+			solver = QAOA(optimizer=optimizer, quantum_instance=quantumInstance, callback=callback, max_evals_grouped=3)
 			# Create optimizer for solver
 			optimizer = MinimumEigenOptimizer(solver)
 			# Get result from optimizer
@@ -87,8 +87,8 @@ def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 		quadprog.linear_constraint(linear={"x": 1, "sup": 1, "intric": 1}, sense="<=", rhs=max_stick, name="gen_max")
 
 		# Mod4 constraints
-		if math.ceil(poten_stick % 4) - 1 > 0:
-			quadprog.linear_constraint(linear={"x": 1, "sup": 1}, sense="<=", rhs=math.ceil(poten_stick % 4) - 1,
+		if math.ceil(poten_stick % 4) - 0.5 > 0:
+			quadprog.linear_constraint(linear={"x": 1, "sup": 1}, sense="<=", rhs=math.ceil(poten_stick % 4),
 									   name="qua_mod4")
 		if nb_stick % 4 - 1 > 0:
 			quadprog.linear_constraint(linear={"x": 1, "sup": 1, "intric": 1}, sense="<=", rhs=nb_stick % 4 - 1,
@@ -253,6 +253,8 @@ def quantum_ia(nb_stick: int, past: list, backend_sim: Aer) -> list:
 
 	gates = quadratibot(nb_stick, past, backend_sim)
 	if len(gates) < 2:
+		predict = gates
+	elif len(set(gates)) != len(gates):
 		predict = gates
 	else:
 		predict = gronim(gates, backend_sim)
