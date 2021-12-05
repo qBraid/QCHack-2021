@@ -2,4 +2,3 @@ fire
 qiskit
 qiskit-optimization
 requests
-pytest==6.2.5
