@@ -34,7 +34,7 @@
 
 ## Game
 ### Running the game
-To run the program just launch : `python3 nim_game.py`
+To run the program just launch : `python3 game.py`
 
 ### Rules
 This game is inspiring from the [Nim game](https://en.wikipedia.org/wiki/Nim). You are 2 players face to face, you have 11 sticks in front of you :
@@ -125,19 +125,5 @@ Then we continue wit the sticks remaning until we don't have stick at all after 
 #### 2 players
 A 2 players mode is available is you want to play with a friend or with your cat
 #### 1 player
-A 1 player is available and you'll fight against a quantum ia made with Grover with inside the modulo 4 classical algorythm.
-
---> **Explanation coming soon !**
-
-<pre>
-q0|0>  ---------------------------------
-
-q1|0>  ---------------------------------
-
-q2|0>  ---------------------------------
-
-q3|0>  ---------------------------------
-
-psi|+> ---------------------------------
-</pre>
+A 1 player is available and you'll fight against a quantum ia made with a quadratical equation, QAOA and Grover.
 

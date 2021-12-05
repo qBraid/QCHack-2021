@@ -1,0 +1,4 @@
+fire
+qiskit
+qiskit-optimization
+requests
